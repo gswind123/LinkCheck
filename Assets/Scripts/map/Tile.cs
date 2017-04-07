@@ -5,9 +5,14 @@ using UnityEngine;
 namespace Windning.LinkCheck {
 	public class Tile : MonoBehaviour {
 
+		public Material faceMat;
+
+		void Awake() {
+			initMeshTexture ();
+		}
+
 		// Use this for initialization
 		void Start () {
-
 		}
 
 		// Update is called once per frame
@@ -15,9 +20,15 @@ namespace Windning.LinkCheck {
 
 		}
 
-		public Vector2 getSize() {
-			Vector3 size = this.GetComponent<BoxCollider2D> ().bounds.size;
-			return new Vector2 (size.x, size.y);
+		public void initMeshTexture() {
+			if (faceMat) {
+				MeshRenderer renderer = this.GetComponent<MeshRenderer> ();
+				if (renderer) {
+					renderer.materials = new Material[]{
+						faceMat	
+					};
+				}
+			}
 		}
 
 	}
