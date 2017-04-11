@@ -8,7 +8,7 @@ namespace Windning.LinkCheck {
 		public Material faceMat;
 
 		void Awake() {
-			initMeshTexture ();
+			setFaceTexture (faceMat);
 		}
 
 		// Use this for initialization
@@ -20,7 +20,8 @@ namespace Windning.LinkCheck {
 
 		}
 
-		public void initMeshTexture() {
+		public void setFaceTexture(Material mat) {
+			faceMat = mat;
 			if (faceMat) {
 				MeshRenderer renderer = this.GetComponent<MeshRenderer> ();
 				if (renderer) {

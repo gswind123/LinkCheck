@@ -6,7 +6,7 @@ namespace Windning.LinkCheck {
 	public class TileEditor : Editor{
 		void OnSceneGUI() {
 			var script = (Tile) serializedObject.targetObject;
-			script.initMeshTexture ();
+			script.setFaceTexture (script.faceMat);
 		}
 	}
 }
